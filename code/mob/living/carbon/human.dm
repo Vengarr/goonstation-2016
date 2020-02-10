@@ -2341,6 +2341,8 @@
 
 	if (get_dist(usr, src) < 4 && ishuman(usr))
 		var/mob/living/carbon/human/H = usr
+		if (H.eye_istype(/obj/item/organ/eye/cyber/prodoc))
+			. += "<br><span style='color: red'>You activate Scan Mode and analyze [src]'s vitals with your cybereye.</span><br>[scan_health(src, 0, 0)]"
 		if (istype(H.glasses, /obj/item/clothing/glasses/healthgoggles))
 			var/obj/item/clothing/glasses/healthgoggles/G = H.glasses
 			if (G.scan_upgrade && G.health_scan)
